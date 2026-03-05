@@ -36,7 +36,17 @@ while (deveContinuar == true)
 
     Console.WriteLine();
 
-   
+    bool primeiroNumeroVazio = string.IsNullOrEmpty(strPrimeiroNumero);
+    bool segundoNumeroVazio = string.IsNullOrEmpty(strSegundoNumero);
+
+
+    if(primeiroNumeroVazio == true || segundoNumeroVazio == true)
+    {
+        Console.WriteLine("Digite um número válido");
+        Console.ReadLine();
+
+        continue;
+    }
 
     Console.WriteLine("O Primeiro numero digitado foi: " + strPrimeiroNumero);
     Console.WriteLine("O Segundo numero digitado foi: " + strSegundoNumero);
