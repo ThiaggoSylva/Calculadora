@@ -17,7 +17,7 @@ while (deveContinuar == true)
     Console.WriteLine("S-Sair");
 
     Console.WriteLine("Selecione uma opção válida: ");
-    string opcaoSelecionada = Console.ReadLine();
+    string? opcaoSelecionada = Console.ReadLine();
 
     if(opcaoSelecionada == "S")
     {
@@ -27,14 +27,16 @@ while (deveContinuar == true)
     }
 
     Console.Write("Digite o Primeiro Número: ");
-    string strPrimeiroNumero = Console.ReadLine();
+    string? strPrimeiroNumero = Console.ReadLine();
 
     Console.WriteLine();
 
     Console.Write("Digite o Segundo Número: ");
-    string strSegundoNumero = Console.ReadLine();
+    string? strSegundoNumero = Console.ReadLine();
 
     Console.WriteLine();
+
+   
 
     Console.WriteLine("O Primeiro numero digitado foi: " + strPrimeiroNumero);
     Console.WriteLine("O Segundo numero digitado foi: " + strSegundoNumero);
