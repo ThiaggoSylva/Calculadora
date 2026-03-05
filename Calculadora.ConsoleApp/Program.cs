@@ -54,10 +54,10 @@ while (deveContinuar == true)
 
     Console.WriteLine();
 
-    int primeiroNumero = Convert.ToInt32(strPrimeiroNumero);
-    int segundoNumero = Convert.ToInt32(strSegundoNumero);
+    decimal primeiroNumero = Convert.ToDecimal(strPrimeiroNumero);
+    decimal segundoNumero = Convert.ToDecimal(strSegundoNumero);
 
-    int resultado;
+    decimal resultado;
 
     if (opcaoSelecionada == "1")
     {
