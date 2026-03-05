@@ -14,6 +14,7 @@ while (deveContinuar == true)
     Console.WriteLine("2-Subtração");
     Console.WriteLine("3-Multiplicação");
     Console.WriteLine("4-Divisão");
+    Console.WriteLine("5-Tabuada");
     Console.WriteLine("S-Sair");
 
     Console.WriteLine("Selecione uma opção válida: ");
@@ -25,6 +26,28 @@ while (deveContinuar == true)
 
         continue;
     }
+
+    if(opcaoSelecionada == "5")
+    {
+        Console.WriteLine("Digite o numero que deseja gerar a tabuada: ");
+
+        int numeroTabuada = Convert.ToInt32(Console.ReadLine());
+
+        for(int contador = 1; contador <= 10; contador=contador + 1 )
+        {
+
+            int resultadoTabuada = numeroTabuada * contador;
+
+            string operacaoTabuada = numeroTabuada + "X" + contador + "=" + resultadoTabuada; 
+            
+            Console.WriteLine(operacaoTabuada);
+        }
+
+        Console.ReadLine();
+        continue;
+    }
+
+
 
     Console.Write("Digite o Primeiro Número: ");
     string? strPrimeiroNumero = Console.ReadLine();
@@ -59,31 +82,39 @@ while (deveContinuar == true)
 
     decimal resultado;
 
-    if (opcaoSelecionada == "1")
+    switch(opcaoSelecionada)
     {
-        resultado = primeiroNumero + segundoNumero;
-    }
-    else if (opcaoSelecionada == "2")
-    {
-        resultado = primeiroNumero - segundoNumero;
-    }
-    else if (opcaoSelecionada == "3")
-    {
-        resultado = primeiroNumero * segundoNumero;
-    }
-    else
-    {
-        if (segundoNumero == 0)
+        case "1":
+            resultado = primeiroNumero + segundoNumero;
+            break;
+
+            case "2":
+            resultado = primeiroNumero - segundoNumero;
+            break;
+
+            case "3":
+            resultado = primeiroNumero * segundoNumero;
+            break;
+
+            case "4":
+             if (segundoNumero == 0)
         {
             Console.WriteLine("não é Possivel Dividir por zero");
             return;
         }
 
+            resultado = primeiroNumero / segundoNumero;
+            break;
 
-        resultado = primeiroNumero / segundoNumero;
+            default:
+                Console.WriteLine("Selecione um numero valido");
+                Console.ReadLine();
+
+                continue;
 
     }
 
+    
 
 
     Console.WriteLine("O Resultado é: " + resultado);
