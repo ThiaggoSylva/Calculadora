@@ -1,8 +1,9 @@
 ﻿
-bool deveContinuar = true;
+string[] historicoOperacoes = new string[100];
 
+int contadorOperacoes = 0;
 
-while (deveContinuar == true)
+while (true)
 {
     Console.Clear();
 
@@ -15,16 +16,15 @@ while (deveContinuar == true)
     Console.WriteLine("3-Multiplicação");
     Console.WriteLine("4-Divisão");
     Console.WriteLine("5-Tabuada");
+    Console.WriteLine("6-Historico de Operações");
     Console.WriteLine("S-Sair");
 
     Console.WriteLine("Selecione uma opção válida: ");
     string? opcaoSelecionada = Console.ReadLine();
 
-    if(opcaoSelecionada == "S")
+    if(opcaoSelecionada == "S" || opcaoSelecionada == "s")
     {
-        deveContinuar = false;
-
-        continue;
+        return;
     }
 
     if(opcaoSelecionada == "5")
@@ -47,6 +47,21 @@ while (deveContinuar == true)
         continue;
     }
 
+    else if(opcaoSelecionada == "6")
+    {
+        Console.WriteLine("Histórico de Operações: ");
+        Console.WriteLine("----------------------------------------------");
+
+        for(int contador = 0; contador < contadorOperacoes; contador++)
+        {
+            Console.WriteLine(historicoOperacoes[contador]);
+        }
+
+        Console.ReadLine();
+
+        continue;
+  
+    }
 
 
     Console.Write("Digite o Primeiro Número: ");
@@ -82,18 +97,23 @@ while (deveContinuar == true)
 
     decimal resultado;
 
+    string textoOperacao;
+
     switch(opcaoSelecionada)
     {
         case "1":
             resultado = primeiroNumero + segundoNumero;
+            textoOperacao = $"{primeiroNumero} + {segundoNumero} = {resultado}";
             break;
 
             case "2":
             resultado = primeiroNumero - segundoNumero;
+            textoOperacao = $"{primeiroNumero} - {segundoNumero} = {resultado}";
             break;
 
             case "3":
             resultado = primeiroNumero * segundoNumero;
+            textoOperacao = $"{primeiroNumero} X {segundoNumero} = {resultado}";
             break;
 
             case "4":
@@ -104,6 +124,7 @@ while (deveContinuar == true)
         }
 
             resultado = primeiroNumero / segundoNumero;
+            textoOperacao = $"{primeiroNumero} / {segundoNumero} = {resultado}";
             break;
 
             default:
@@ -114,9 +135,16 @@ while (deveContinuar == true)
 
     }
 
-    
+    if(contadorOperacoes < historicoOperacoes.Length)
+    {
+        historicoOperacoes[contadorOperacoes] = textoOperacao;
 
+        contadorOperacoes++;
 
+    }
+
+            
+   
     Console.WriteLine("O Resultado é: " + resultado);
 
     Console.ReadLine();
